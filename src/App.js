@@ -31,10 +31,25 @@ function App() {
     setTodosList(newTodos);
 
   }
+
+  const undoMarkAsCompleted = (index) => {
+    const newTodos = [...todosList];
+    newTodos[index].isCompleted = false;
+    setTodosList(newTodos);
+
+  }
+  const removeTodo = (index) => {
+
+    const newTodos = [...todosList];
+    newTodos.splice(index, 1);
+
+    setTodosList(newTodos);
+
+  }
   return (
     <div className="App">
       <FormTodo addTodo={addTodo} />
-      <TodoList todos={todosList} completed={markAsCompleted} />
+      <TodoList todos={todosList} markAsCompleted={markAsCompleted} undoMarkAsCompleted={undoMarkAsCompleted} removeTodo={removeTodo} />
     </div>
   );
 }

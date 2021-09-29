@@ -5,8 +5,8 @@ const TodoList = (props) => {
     <div>
       <h1>Todo List</h1>
       {props.todos?.map((todo, index) => {
-        return <Todo checked={props.completed}
-        index={index} key={index} todo={todo} />;
+        return <Todo isCompleted={todo.isCompleted} markAsCompleted={props.markAsCompleted} undoMarkAsCompleted={props.undoMarkAsCompleted} removeTodo={props.removeTodo}
+          index={index} key={index} todo={todo} />;
       })}
     </div>
   );

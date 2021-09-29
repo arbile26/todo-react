@@ -15,12 +15,15 @@ const Todo = (props) => {
       <div>
         <Button
           onClick={() => {
-            props.checked(props.index);
+            if (props.isCompleted) {
+              props.undoMarkAsCompleted(props.index);
+            }
+            else { props.markAsCompleted(props.index); }
           }}
         >
           ✅
         </Button>
-        <Button onClick={() => {}}>❌</Button>
+        <Button onClick={() => { props.removeTodo(props.index) }}>❌</Button>
       </div>
     </div>
   );
